@@ -39,6 +39,13 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+#お気に入り機能実装に関する記述  
+  def likes
+    @user = User.find(params[:id])
+    @pagy, @likes = pagy(@user.likes)
+    counts(@user)
+  end
+   
   private
 
   def user_params
